@@ -1,6 +1,9 @@
 class Scrabble
   def score(word)
-    0
+    return 0 if word.nil? || word.empty?
+    word.upcase.chars.reduce(0) do |score, char|
+      score + point_values.fetch(char, 0)
+    end
   end
 
   def point_values
